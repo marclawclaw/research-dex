@@ -83,8 +83,9 @@ CoW Protocol solvers participate in CoW AMM rebalancing auctions using the same 
 | Metric | Value | Source | Date |
 |---|---|---|---|
 | LP returns vs reference pools (backtesting) | Equal or better for 10 of 11 most liquid non-stablecoin pairs | https://cow.fi/cow-amm | 6-month 2023 backtesting |
-| TVL uplift vs reference pools | ~5% | https://cow.fi/cow-amm | 2024-2025 |
-| LP surplus captured since launch | $100,000+ | https://cow.fi/cow-amm | 2024-2025 |
+| TVL uplift vs reference pools | ~4.75% (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
+| LP liquidity protected from LVR | $18M+ | https://cow.fi/cow-amm | 2024-2025 |
+| LP surplus captured since launch | $1.2M+ (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
 | DeFi-wide LVR losses | $500M+ per year | https://cow.fi/learn/what-is-loss-versus-rebalancing-lvr | academic estimate |
 
 See also: [[metrics/lvr-impact]]

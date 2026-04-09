@@ -52,8 +52,9 @@
 
 | Metric | Value | Source | Date |
 |---|---|---|---|
-| LP surplus captured | $100,000+ | https://cow.fi/cow-amm | 2024-2025 |
-| TVL uplift vs reference pools | ~5% | https://cow.fi/cow-amm | 2024-2025 |
+| LP surplus captured | $1.2M+ (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
+| LP liquidity protected from LVR | $18M+ | https://cow.fi/cow-amm | 2024-2025 |
+| TVL uplift vs reference pools | ~4.75% (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
 | LP return outperformance (backtesting) | 10 of 11 non-stablecoin pairs | https://cow.fi/cow-amm | 6-month 2023 backtesting |
 
 ## Community Metrics

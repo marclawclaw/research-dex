@@ -23,9 +23,10 @@ Academic definition: LVR at each instant equals the difference between the value
 
 | Metric | Value | Source | Date / Notes |
 |---|---|---|---|
-| LP surplus captured by CoW AMM since launch | $100,000+ | https://cow.fi/cow-amm | 2024-2025 |
+| LP surplus captured by CoW AMM since launch | $1.2M+ (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
+| LP liquidity protected from LVR by CoW AMM | $18M+ | https://cow.fi/cow-amm | 2024-2025 |
 | LP return vs traditional CFAM (backtesting) | Equal or better for 10 of 11 most liquid non-stablecoin pairs | https://cow.fi/cow-amm | 6-month 2023 backtesting period |
-| TVL uplift in CoW AMM pools vs reference pools | ~5% | https://cow.fi/cow-amm | 2024-2025 |
+| TVL uplift in CoW AMM pools vs reference pools | ~4.75% (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
 
 ## Academic and Research Sources
 

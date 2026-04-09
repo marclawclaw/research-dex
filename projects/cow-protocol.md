@@ -37,8 +37,9 @@ CoW AMM is a companion product: a Function-Maximising AMM that captures arbitrag
 | Twitter/X followers | 66,800 | https://cow.fi/learn/cow-dao-2025-in-review | 2025 annual review |
 | Barter solver market share | 28.2% (on Ethereum) | https://blockworks.co/news/barter-buys-rival-solver-codebase | September 2025 |
 | Active solvers | 30+ independent teams | https://www.shoal.gg/p/cow-swap-intents-mev-and-batch-auctions | 2024-2025 |
-| CoW AMM LP surplus captured | $100,000+ | https://cow.fi/cow-amm | 2024-2025 |
-| CoW AMM TVL uplift vs reference pools | ~5% | https://cow.fi/cow-amm | 2024-2025 |
+| CoW AMM LP surplus captured | $1.2M+ (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
+| CoW AMM LP liquidity protected from LVR | $18M+ | https://cow.fi/cow-amm | 2024-2025 |
+| CoW AMM TVL uplift vs reference pools | ~4.75% (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
 
 See also: [[metrics/cow-protocol-volume]]
 
@@ -117,9 +118,11 @@ CoW AMM is the first MEV-capturing AMM. It integrates with Balancer v3 as a pool
 
 **Performance (backtesting 2023 data):** CoW AMM returns equalled or outperformed traditional CF-AMM returns for 10 of the 11 most liquid non-stablecoin pairs across a 6-month testing period.
 
-**TVL uplift:** ~5% improvement in TVL compared to reference pools.
+**TVL uplift:** ~4.75% improvement in TVL compared to reference pools (beta phase data).
 
-**Surplus captured for LPs:** $100,000+ since launch.
+**LVR protected:** $18M+ in LP liquidity protected from LVR since launch.
+
+**Surplus captured for LPs:** $1.2M+ since launch (beta phase data).
 
 Source: https://cow.fi/cow-amm, https://docs.cow.fi/cow-amm, https://cow.fi/learn/cow-dao-launches-the-first-mev-capturing-amm
 
@@ -188,6 +191,10 @@ Source: https://cow.fi/learn/cow-dao-2025-in-review
 | Safe fallback handler | G0 Group + Ackee Blockchain | 2023 | — | — | — | Dual external review |
 | CoW Flash Loan Router | Ackee Blockchain | March 17-21, 2025 | 0 | 0 | 0 | 4 findings; 1 warning (missing events), 3 informational; all resolved |
 | COW token, Core (GPv2), Native Token Sell Flow | Various | 2021-2022 | — | — | — | Reports in GitHub cowprotocol/contracts |
+
+**Bug bounty:** Immunefi programme with maximum critical reward of $1,000,000 (in ETH). Source: https://immunefi.com/bug-bounty/cowprotocol/
+
+**February 2023 incident:** An attacker exploited the Barter solver's intermediary SwapGuard contract, which allowed arbitrary call execution. Approximately $166,000 was drained from the settlement contract (7 days of accumulated protocol fees). User funds were never at risk; CoW Swap's atomic settlement model does not hold user funds. Barter's solver bond ($500,000 cUSDC + 1.5M COW tokens) was slashed to cover the losses, and Barter refunded the full amount. All vulnerable contract approvals were revoked immediately. Source: https://cow.fi/learn/cow-swap-solver-exploit-post-mortem
 
 Source: https://ackee.xyz/blog/%D1%81ow-protocol-composablecow-extensiblefallbackhandler-audit-summary/, https://ackee.xyz/blog/cow-flash-loan-router-audit-summary/
 
