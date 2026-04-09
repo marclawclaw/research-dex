@@ -105,5 +105,5 @@ The main portability challenge is audit depth: because all pools share one Vault
 
 ## See also
 
-- [[balancer-v3]] — main project note
-- [[yield-bearing-token-support]] — how the vault handles ERC-4626 tokens natively
+- [[balancer-v3]]: main project note
+- [[yield-bearing-token-support]]: how the vault handles ERC-4626 tokens natively

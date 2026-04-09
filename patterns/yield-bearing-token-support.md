@@ -117,5 +117,5 @@ Yield-bearing token support is highly valuable but optional for an MVP DEX. The 
 
 ## See also
 
-- [[balancer-v3]] — main project note with full architecture
-- [[single-vault-architecture]] — how the vault enables vault-level rate scaling
+- [[balancer-v3]]: main project note with full architecture
+- [[single-vault-architecture]]: how the vault enables vault-level rate scaling
