@@ -42,4 +42,4 @@ Academic definition: LVR at each instant equals the difference between the value
 
 The $500M annual LVR estimate is widely cited but derived from modelling rather than direct on-chain measurement. Actual LVR depends on realised volatility and trading volume, which vary significantly over time. The academic papers provide the methodological basis for estimation but do not provide a continuously updated empirical figure.
 
-CoW AMM's reported LP surplus ($100,000+) is cumulative since launch and represents a lower bound on value redirected from arbitrageurs to LPs; the total is expected to grow as CoW AMM TVL scales.
+CoW AMM's reported LP surplus ($1.2M+) is cumulative since launch and represents a lower bound on value redirected from arbitrageurs to LPs; the total is expected to grow as CoW AMM TVL scales.

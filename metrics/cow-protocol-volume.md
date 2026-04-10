@@ -35,14 +35,14 @@
 | Metric | Value | Source | Date |
 |---|---|---|---|
 | DEX aggregator rank | Top 3 across DeFi | https://cow.fi/learn/cow-dao-2025-in-review | 2025 annual review |
-| DEX aggregation market share (claimed) | 34.3% | https://coinmarketcap.com/cmc-ai/cow-protocol/latest-updates/ | 2025 |
+| DEX aggregation market share (claimed) | 34.3% [DATA NEEDED: source does not contain this figure] | https://coinmarketcap.com/cmc-ai/cow-protocol/latest-updates/ | 2025 |
 | New chain volume share | ~30% of total by Q4 2025 | https://cow.fi/learn/cow-dao-2025-in-review | Q4 2025 |
 
 ## Solver Ecosystem
 
 | Metric | Value | Source | Date |
 |---|---|---|---|
-| Active solver teams | 30+ independent teams | https://www.shoal.gg/p/cow-swap-intents-mev-and-batch-auctions | 2024-2025 |
+| Active solver teams | ~20 independent teams | https://brrrdao.substack.com/p/cow-protocol-part-2-cow-solver-economy | May 2024 |
 | Barter solver market share (Ethereum) | 28.2% | https://blockworks.co/news/barter-buys-rival-solver-codebase | September 2025 |
 | Barter cumulative batches (to late April 2025) | 89,714 batches | https://brrrdao.substack.com/p/cow-protocol-part-2-cow-solver-economy | Late April 2025 |
 | Barter cumulative trades (to late April 2025) | 265,240 trades | https://brrrdao.substack.com/p/cow-protocol-part-2-cow-solver-economy | Late April 2025 |

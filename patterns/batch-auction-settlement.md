@@ -98,7 +98,7 @@ Solvers must submit and execute settlements within network-specific block window
 |---|---|
 | Ethereum Mainnet | 3 blocks |
 | Gnosis Chain | 5 blocks |
-| Base, Avalanche, Polygon, Linea | 20 blocks |
+| Base, Avalanche, Polygon, Linea, Plasma | 20 blocks |
 | Arbitrum, BNB | 40 blocks |
 
 Exceeding the deadline triggers automatic solver denylisting pending manual review.

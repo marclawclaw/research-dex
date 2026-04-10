@@ -36,7 +36,7 @@ CoW AMM is a companion product: a Function-Maximising AMM that captures arbitrag
 | Discord community | 12,000 members | https://cow.fi/learn/cow-dao-2025-in-review | 2025 annual review |
 | Twitter/X followers | 66,800 | https://cow.fi/learn/cow-dao-2025-in-review | 2025 annual review |
 | Barter solver market share | 28.2% (on Ethereum) | https://blockworks.co/news/barter-buys-rival-solver-codebase | September 2025 |
-| Active solvers | 30+ independent teams | https://www.shoal.gg/p/cow-swap-intents-mev-and-batch-auctions | 2024-2025 |
+| Active solvers | ~20 independent teams | https://brrrdao.substack.com/p/cow-protocol-part-2-cow-solver-economy | May 2024 |
 | CoW AMM LP surplus captured | $1.2M+ (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
 | CoW AMM LP liquidity protected from LVR | $18M+ | https://cow.fi/cow-amm | 2024-2025 |
 | CoW AMM TVL uplift vs reference pools | ~4.75% (beta phase) | https://cow.fi/cow-amm | 2024-2025 |
@@ -88,12 +88,12 @@ Solvers are off-chain optimisation algorithms that compete to settle batches. Th
 
 **Qualification:** Whitelisting requires posting a bond. Anyone with DeFi/optimisation knowledge can apply, but in practice the bonding requirement creates a significant financial barrier and most smaller participants cannot qualify without external vouching.
 
-**Rewards:** The winning solver receives COW tokens. The reward model has evolved: CIP-38 introduced scoring based on executed trade amounts (surplus-based); CIP-67 aimed to increase reward amounts aligned with protocol revenue; CIP-74 (November 2025) introduced a dynamic cap tied to protocol fees and an unconditional 0.02% volume-based protocol fee.
+**Rewards:** The winning solver receives COW tokens. The reward model has evolved: CIP-38 introduced scoring based on executed trade amounts (surplus-based); CIP-67 aimed to increase reward amounts aligned with protocol revenue; CIP-74 (proposed late 2025, implemented February 2026) introduced a dynamic cap tied to protocol fees and an unconditional 0.02% volume-based protocol fee.
 
 **Execution deadlines (block-based):**
 - Ethereum Mainnet: 3 blocks
 - Gnosis Chain: 5 blocks
-- Base, Avalanche, Polygon, Linea, Plasma: 20 blocks
+- Base, Avalanche, Polygon, Linea, Plasma: 20 blocks each
 - Arbitrum, BNB: 40 blocks
 
 Missing the deadline results in immediate denylisting pending manual review.
@@ -104,13 +104,13 @@ Missing the deadline results in immediate denylisting pending manual review.
 - Barter: ~28.2% Ethereum market share (September 2025); acquired Copium Capital's codebase in September 2025.
 - Wintermute: early major solver.
 - Velora (formerly Paraswap): active solver.
-- 30+ independent teams active overall.
+- ~20 independent teams active overall (as of May 2024).
 
 Source: https://docs.cow.fi/cow-protocol/concepts/introduction/solvers, https://docs.cow.fi/cow-protocol/reference/core/auctions/competition-rules, https://brrrdao.substack.com/p/cow-protocol-part-2-cow-solver-economy
 
 ## CoW AMM
 
-CoW AMM is the first MEV-capturing AMM. It integrates with Balancer v3 as a pool type, so LPs deposit via the Balancer interface.
+CoW AMM is the first MEV-capturing AMM. It integrates with Balancer as a pool type, so LPs deposit via the Balancer interface.
 
 **Problem it solves:** Traditional CFAMs (constant-function AMMs) leak value to arbitrageurs via Loss-Versus-Rebalancing (LVR). LVR occurs whenever an AMM's price is stale relative to external markets; arbitrageurs extract that difference at LP expense. LVR costs LPs over $500M per year across DeFi. See [[patterns/mev-capturing-amm]], [[metrics/lvr-impact]].
 
@@ -159,8 +159,7 @@ Source: https://docs.cow.fi/governance/token, https://forum.cow.fi/t/cow-dao-tre
 
 - **Pre-2024:** Zero protocol fees; solver rewards funded entirely by COW token emissions.
 - **January 2024:** Fee switch activated via DAO vote. Initial model charges 50% of surplus on out-of-market limit orders (quote improvement fee).
-- **November 2025 (CIP-74):** Dynamic solver reward cap tied to protocol fees; unconditional 0.02% volume fee introduced.
-- **February 2026:** Tiered fee structure; correlated asset pairs (stable-to-stable) reduced from 2 bps to 0.3 bps.
+- **February 2026 (CIP-74):** Dynamic solver reward cap tied to protocol fees; unconditional 0.02% volume fee introduced. Tiered fee structure: correlated asset pairs (stable-to-stable) reduced from 2 bps to 0.3 bps. Effective February 3, 2026.
 - **Partner fees:** CIP-75: CoW Protocol retains 25% of all partner integration fees as a service fee.
 
 Source: https://www.dlnews.com/articles/defi/how-cow-swap-protocol-will-make-money-off-its-trading-volume/, https://forum.cow.fi/t/cip-74-retrospective-aligning-rewards-with-revenue/3358

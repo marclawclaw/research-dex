@@ -2,8 +2,8 @@
 
 **Also known as:** Function-Maximising AMM, FM-AMM, LVR-free AMM, arbitrage-capturing AMM
 **Primary example:** [[projects/cow-protocol]] (CoW AMM)
-**Academic basis:** Columbia University research on LVR (Loss-Versus-Rebalancing)
-**Status:** Production (CoW AMM on Balancer v3 since 2024)
+**Academic basis:** Columbia University / University of Chicago Booth research on LVR (Loss-Versus-Rebalancing)
+**Status:** Production (CoW AMM on Balancer since 2024)
 
 ## Summary
 
@@ -56,9 +56,9 @@ The technical term for the selection criterion is "function-maximising." The poo
 
 ## CoW AMM Implementation
 
-### Integration with Balancer v3
+### Integration with Balancer
 
-CoW AMM is implemented as a native pool type within Balancer v3's architecture. LPs:
+CoW AMM is implemented as a native pool type within Balancer's architecture. LPs:
 1. Deposit tokens into a CoW AMM pool via the Balancer interface (same UX as standard Balancer pools)
 2. Receive Balancer pool tokens representing their share
 3. Participate automatically in rebalancing auctions via CoW Protocol's solver network
@@ -130,7 +130,7 @@ The CoW AMM implements one of the theoretical remedies proposed in the research 
 - Requires an active solver network to function; bootstrapping is non-trivial.
 - Auction-based rebalancing introduces a brief window of price staleness (sub-block latency on fast networks; seconds on Ethereum Mainnet).
 - Not suitable for assets with very low solver interest (insufficient arbitrage volume to incentivise solver participation).
-- Currently only production-deployed on Ethereum via Balancer v3; portability to other chains requires solver network availability.
+- Currently only production-deployed on Ethereum via Balancer; portability to other chains requires solver network availability.
 
 ## Related Patterns
 
@@ -139,4 +139,4 @@ The CoW AMM implements one of the theoretical remedies proposed in the research 
 
 ## Projects Using This Pattern
 
-- [[projects/cow-protocol]] (CoW AMM, production on Balancer v3 since 2024)
+- [[projects/cow-protocol]] (CoW AMM, production on Balancer since 2024)
