@@ -77,7 +77,7 @@ See also: [[metrics/curve-stableswapng-tvl-volume]]
 ## Security
 
 ### 2023 Vyper reentrancy exploit (not StableSwapNG)
-On 30 July 2023, Curve Finance factory pools lost approximately $70M due to a reentrancy vulnerability. The root cause was a storage-slot allocation bug in Vyper compiler versions 0.2.15, 0.2.16, and 0.3.0, which caused the `@nonreentrant` decorator to silently allocate distinct storage slots per function rather than sharing one lock, defeating the guard. Affected pools included JPEGd's pETH/ETH pool ($11.4M), Metronome sETH/ETH ($1.6M), and Alchemix alETH/ETH. These were Curve V1 factory pools, not StableSwapNG. StableSwapNG uses Vyper 0.3.10, which contains the patched compiler.
+On 30 July 2023, Curve Finance factory pools lost approximately $70M gross (approximately $52M net after partial whitehat recovery) due to a reentrancy vulnerability. The root cause was a storage-slot allocation bug in Vyper compiler versions 0.2.15, 0.2.16, and 0.3.0, which caused the `@nonreentrant` decorator to silently allocate distinct storage slots per function rather than sharing one lock, defeating the guard. Affected pools included JPEGd's pETH/ETH pool ($11.4M), Metronome sETH/ETH ($1.6M), and Alchemix alETH/ETH. These were Curve V1 factory pools, not StableSwapNG. StableSwapNG uses Vyper 0.3.10, which contains the patched compiler.
 
 Sources: [Halborn post-mortem](https://www.halborn.com/blog/post/explained-the-vyper-bug-hack-july-2023), [Vyper post-mortem](https://hackmd.io/@vyperlang/HJUgNMhs2), [CoinTelegraph](https://cointelegraph.com/news/curve-finance-pools-exploited-over-24-reentrancy-vulnerability)
 
@@ -133,7 +133,7 @@ Sources: [Curve 2025 Year in Review](https://news.curve.finance/curve-2025-year-
 - [MixBytes: Safe StableSwap-NG Deployment](https://mixbytes.io/blog/safe-stableswap-ng-deployment-how-to-avoid-risks-from-volatile-oracles) — accessed 2026-04-09
 - [MixBytes StableSwapNG public audit](https://github.com/mixbytes/audits_public/blob/master/Curve%20Finance/StableSwapNG/README.md) — accessed 2026-04-09
 - [Curve 2025 Year in Review](https://news.curve.finance/curve-2025-year-in-review/) — accessed 2026-04-09
-- [Curve Finance Q3 2025 report (PR Newswire)](https://www.prnewswire.com/news-releases/curve-finance-reports-strong-q3-2025-trading-volume-hits-29b-while-revenue-more-than-updates-302611749.html) — accessed 2026-04-09
+- [Curve Finance Q3 2025 report (PR Newswire)](https://www.prnewswire.com/news-releases/curve-finance-reports-strong-q3-2025-trading-volume-hits-29b-while-revenue-more-than-doubles-302611749.html) — accessed 2026-04-09
 - [RareSkills: Curve get_D() and get_y()](https://rareskills.io/post/curve-get-d-get-y) — accessed 2026-04-09
 - [Halborn: Explained the Vyper Bug Hack (July 2023)](https://www.halborn.com/blog/post/explained-the-vyper-bug-hack-july-2023) — accessed 2026-04-09
 - [Vyper compiler post-mortem (HackMD)](https://hackmd.io/@vyperlang/HJUgNMhs2) — accessed 2026-04-09

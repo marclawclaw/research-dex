@@ -59,7 +59,7 @@ Where:
 - `S = sum(x_i)` (sum of all balances)
 - `D_p = D^(n+1) / (n^n * prod(x_i))`
 
-The loop converges when `|D_next - D| < 1` (in token base units). Convergence typically takes 4 to 6 iterations for standard pool configurations.
+The loop converges when `|D_next - D| < 1` (in token base units). Convergence typically takes approximately 5 to 10 iterations for standard pool configurations.
 
 `get_D()` is called on every swap, add-liquidity, and remove-liquidity operation because `D` must remain constant during a swap (ignoring fees) and must update correctly when liquidity is deposited or withdrawn.
 

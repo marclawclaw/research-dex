@@ -70,6 +70,6 @@ This extremely high volume-to-TVL ratio (50x) demonstrates the capital efficienc
 
 ## Historical context
 
-Curve Finance's aggregate TVL peaked near $24B at end of 2022 (Curve V1/V2 era). Post-FTX and the DeFi bear market, TVL contracted to approximately $2B to $2.5B through 2023 to 2024. StableSwapNG launched in mid-2023 and has become the dominant pool factory for new pool deployments. The 2025 recovery in fee share (1.6% to 44% of Ethereum DEX fees) is attributed largely to the dynamic fee feature introduced in StableSwapNG pools.
+Curve Finance's aggregate TVL peaked near $24B at end of 2022 (Curve V1/V2 era). Post-FTX and the DeFi bear market, TVL contracted to approximately $2B to $2.5B through 2023 to 2024. StableSwapNG launched in October 2023 and has become the dominant pool factory for new pool deployments. The 2025 recovery in fee share (1.6% to 44% of Ethereum DEX fees) is attributed largely to the dynamic fee feature introduced in StableSwapNG pools.
 
-Source: [DeFiLlama Curve Finance](https://defillama.com/protocol/curve-finance) — accessed 2026-04-09
+Source: [DeFiLlama Curve Finance](https://defillama.com/protocol/curve-finance) (aggregates all Curve products including StableSwap, crvUSD, and Llamalend; see [DeFiLlama Curve DEX](https://defillama.com/protocol/curve-dex) for the DEX-only view) — accessed 2026-04-09
