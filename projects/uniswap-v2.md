@@ -19,9 +19,9 @@ Uniswap V2 is the canonical constant-product automated market maker (AMM) deploy
 | 24h trading volume | ~$15.1M | [CoinMarketCap](https://coinmarketcap.com/exchanges/uniswap-v2/) | April 2026 |
 | 30-day trading volume | ~$3.1B | [DeFiLlama](https://defillama.com/protocol/uniswap-v2) | Early 2026 |
 | Cumulative all-time DEX volume | ~$604B | [DeFiLlama](https://defillama.com/protocol/uniswap-v2) | Early 2026 |
-| Number of trading pairs (historical) | 260,544 | [DeFiLlama](https://defillama.com/protocol/uniswap-v2) | October 2023 |
-| Protocol fee activation | 0.05% of swap fees (17% of LP fees) redirected to UNI burn | [Uniswap Blog](https://blog.uniswap.org/unification) | December 2025 |
-| V2 share of Uniswap TVL on Ethereum | ~40% | [CoinSpeaker](https://www.coinspeaker.com/uniswap-hit-tvl-2-billion/) | 2025 estimate |
+| Number of trading pairs (historical) | [DATA NEEDED] | — | — |
+| Protocol fee activation | 0.05% of swap fees (1/6 of LP fees) redirected to UNI burn | [Uniswap Blog](https://blog.uniswap.org/unification) | December 2025 |
+| V2 share of Uniswap TVL on Ethereum | [DATA NEEDED] | — | — |
 | TVL peak (all Uniswap versions combined) | >$10B | [CoinSpeaker](https://www.coinspeaker.com/uniswap-hit-tvl-2-billion/) | 2021 |
 | Fork count (DeFiLlama tracked) | 100+ forks globally | [DeFiLlama Forks](https://defillama.com/forks/Uniswap%20V2) | 2025 |
 
@@ -51,13 +51,13 @@ The protocol enforces:
 x · y = k
 ```
 
-where `x` and `y` are the reserves of token0 and token1. After each swap the post-fee reserves must satisfy:
+where `x` and `y` are the reserves of token0 and token1. After each swap the post-fee input must satisfy:
 
 ```
-(x₁ · 0.997) · (y₁ · 0.997) ≥ x₀ · y₀
+(x₀ + 0.997 · Δx) · (y₀ − Δy) ≥ x₀ · y₀
 ```
 
-The 0.3% fee is collected by leaving it in the pool, growing `k` over time and thus growing LP token redemption value.
+The 0.3% fee is deducted from the input amount before the invariant check. The fee tokens remain in the pool, growing `k` over time and thus growing LP token redemption value.
 
 ### Protocol fee (optional)
 
@@ -81,7 +81,7 @@ The reserves serve as the authoritative cached state. They may diverge from actu
 
 ### LP token minting
 
-Initial deposit: `s_minted = √(x_deposited · y_deposited) − MINIMUM_LIQUIDITY` where `MINIMUM_LIQUIDITY = 10^-15` shares are burned to the zero address permanently, preventing pool poisoning attacks.
+Initial deposit: `s_minted = √(x_deposited · y_deposited) − MINIMUM_LIQUIDITY` where `MINIMUM_LIQUIDITY = 1000` (i.e., 10^-15 with 18 decimal places) is burned to the zero address permanently, preventing pool poisoning attacks.
 
 Subsequent deposits: `s_minted = min(x_deposited/x_reserve, y_deposited/y_reserve) · totalSupply`
 
@@ -150,7 +150,7 @@ Reserves are stored as `uint112` (max ~5.19 × 10^33 with 18 decimals: ~5.19 × 
 ## Limitations
 
 1. **Impermanent loss:** LPs suffer value loss relative to holding when token prices diverge. Loss is proportional to the square of the price ratio change: IL = 2√r/(1+r) − 1 where r is the price ratio change.
-2. **No MEV protection:** Swaps are mempool-visible; sandwich attacks (front-run buy, back-run sell) extract value from users. A 2025 Trail of Bits report found >12% of Ethereum AMM transactions were sandwich attacks.
+2. **No MEV protection:** Swaps are mempool-visible; sandwich attacks (front-run buy, back-run sell) extract value from users. Large-scale studies have identified millions of sandwich attacks on Ethereum, with sandwich attack gas fees accounting for over 15% of total fees paid by block builders to validators ([ScienceDirect, 2025](https://www.sciencedirect.com/science/article/pii/S2096720925000673)).
 3. **Rebasing token vulnerability:** Positive rebases create publicly extractable surpluses via `skim()`. Negative rebases cause swap reversions until `sync()` is called.
 4. **Capital inefficiency:** Full-range liquidity provision (x·y=k) means most capital is deployed at prices far from the current price. Concentrated liquidity (V3+) addresses this.
 5. **TWAP oracle manipulation:** Short windows and thin liquidity reduce manipulation cost. Multi-block MEV makes manipulation cheaper post-Merge.
@@ -160,16 +160,16 @@ Reserves are stored as `uint112` (max ~5.19 × 10^33 with 18 decimals: ~5.19 × 
 
 ## Security
 
-- **Audit:** Formal verification and code review by a team of six engineers (dapp.org), January to April 2020. No critical or high-severity issues found. Two medium-severity issues: (1) router incompatibility with fee-on-transfer tokens; (2) a race condition in the deflation-fix mechanism.
+- **Audit:** Formal verification and code review by a team of six engineers ([dapp.org](https://dapp.org.uk/reports/uniswapv2.html)), January to April 2020. Two medium-severity and one low-severity issue found: (1) router incompatibility with fee-on-transfer tokens; (2) initial minimum LP token supply fix (1,000 tokens burned to zero address) to prevent barrier-to-entry attacks; (3) integer overflow in `sqrt` function at maximum uint input.
 - **Reentrancy guard:** `lock` modifier on all mutating pair functions.
 - **Flash swap safety:** Invariant check enforced at end of `swap()` after callback; cannot be bypassed without reverting.
-- **Minimum liquidity:** 10^-15 LP shares burned at first deposit, making LP share price manipulation attacks prohibitively expensive (~$100,000+ cost).
+- **Minimum liquidity:** 1,000 LP token units (10^-15 with 18 decimals) burned to the zero address at first deposit, preventing LP share price manipulation by ensuring no single depositor can own the entire LP token supply.
 - **Chain fork replay:** ERC-20 Permit's `DOMAIN_SEPARATOR` is computed once at deployment; signatures can be replayed on forked chains (known limitation).
-- **Bug bounty:** Ongoing program on Cantina (covers V4 and other versions; V2 is considered mature).
+- **Bug bounty:** Ongoing program on [Cantina](https://cantina.xyz/bounties/f9df94db-c7b1-434b-bb06-d1360abdd1be) covering all Uniswap Labs deployed contracts (V2 included, though V2 is considered mature).
 
 ## References
 
-- Uniswap V2 whitepaper: https://app.uniswap.org/whitepaper.pdf (Hayden Adams, Noah Zinsmeister; 2020)
+- Uniswap V2 whitepaper: https://app.uniswap.org/whitepaper.pdf (Hayden Adams, Noah Zinsmeister, Dan Robinson; March 2020)
 - V2 pair contract docs: https://docs.uniswap.org/contracts/v2/reference/smart-contracts/pair
 - V2 oracle docs: https://docs.uniswap.org/contracts/v2/concepts/core-concepts/oracles
 - V2 security docs: https://docs.uniswap.org/contracts/v2/concepts/advanced-topics/security
