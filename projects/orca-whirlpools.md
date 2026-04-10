@@ -25,7 +25,7 @@ See [[metrics/orca-whirlpools-metrics]] for sourced figures.
 |--------|-------|--------|------|
 | TVL | $246.8 million | [DefiLlama](https://defillama.com/protocol/orca) | ~2025 |
 | Cumulative volume | >$300 billion | [Orca Medium](https://orca-so.medium.com/orca-solanas-liquidity-layer-3855b5985aa3) | Feb 2025 |
-| SOL/USDC pool 30-day volume | $22.8 billion | [PANews](https://www.panewslab.com/en/articles/5zrwdqh9) | May 2025 |
+| SOL/USDC pool 30-day volume | $22.8 billion | [PANews (Chinese edition)](https://www.panewslab.com/en/articles/5zrwdqh9) [source unverified in English] | May 2025 |
 | Solana DEX market share (volume) | ~16% | [bitcoinethereumnews.com](https://bitcoinethereumnews.com/finance/solanas-dex-wars-intensify-as-pumpfun-and-orca-challenge-raydiums-dominance/) | Apr 2025 |
 | ORCA max supply | 100 million (hard cap) | [April 2025 Updates, Orca Medium](https://orca-so.medium.com/april-2025-updates-e670b5d86d17) | Apr 2025 |
 | ORCA circulating supply | ~60.8 million (post-burn) | [Bitrue](https://www.bitrue.com/blog/orca-token-burn-how-this-will-impact-orcas-price) | May 2025 |
@@ -61,7 +61,7 @@ Whirlpools implements a tick-based CLMM modelled conceptually after Uniswap v3 b
 | Concentrated Liquidity Whirlpool | Custom price ranges, tick-based | Active LPs, professional market makers |
 | Splash Pool | Full-range only, simplified UI, no extra tick array init | New token launches, passive LPs, memecoins |
 
-**Splash Pools** are built on top of the same Whirlpool program but restrict positions to full-range, eliminating the need to pre-initialise tick arrays. ([Orca Docs](https://docs.orca.so/solana-documentation/orca-on-solana/orca-for-new-token-creators-on-solana/how-to-guides/how-to-create-a-splash-pool-on-solana))
+**Splash Pools** are built on top of the same Whirlpool program but restrict positions to full-range, eliminating the need to pre-initialise tick arrays. ([Orca Docs](https://docs.orca.so) [LINK MOVED])
 
 ### Fee Tiers
 
@@ -136,7 +136,7 @@ Orca deployed on Eclipse (Ethereum-settlement SVM chain) as its first multichain
 | Auditor | Date | Notes |
 |---------|------|-------|
 | Kudelski Security | Jan 2022 | Initial audit |
-| Neodyme AG | May 2022 | [Public report](https://www.neodyme.io/reports/orca.pdf) |
+| Neodyme AG | May 2022 | [Public report](https://reports.neodyme.io/reports/orca_report.pdf) |
 | OtterSec | Aug 2024 | |
 | Sec3 | Feb 2025 | |
 | Sec3 | Jun 2025 | |
@@ -178,7 +178,7 @@ Wavebreak is Orca's "human-first" token launchpad, launched July 2025. It target
 
 **Connection to Whirlpools:** Graduated tokens feed directly into Orca's CLMM, deepening Whirlpool liquidity and driving protocol fee revenue (which in turn feeds ORCA buybacks).
 
-Sources: [What Is Wavebreak (Orca Docs)](https://docs.orca.so/wavebreak/what-is-wavebreak); [Blockworks](https://blockworks.co/news/orca-solana-token-launchpad); [Ainvest](https://www.ainvest.com/news/solana-news-today-orca-launches-wavebreak-challenge-launchpad-dominance-anti-bot-mechanisms-2507/)
+Sources: [Blockworks](https://blockworks.co/news/orca-solana-token-launchpad); [Ainvest](https://www.ainvest.com/news/solana-news-today-orca-launches-wavebreak-challenge-launchpad-dominance-anti-bot-mechanisms-2507/)
 
 ---
 
@@ -205,7 +205,7 @@ Orca leads in LST (Liquid Staking Token) swaps and project token markets (e.g., 
 
 ### vs. Meteora DLMM
 
-Meteora's Dynamic Liquidity Market Maker (DLMM) captured >22% Solana DEX market share by March 2025, posing a significant challenge. Meteora uses a different bin-based liquidity model rather than ticks.
+Meteora's Dynamic Liquidity Market Maker (DLMM) captured over 22% of Solana DEX market share by volume as of February 2025 ([CoinGecko](https://www.coingecko.com/learn/what-is-meteora-dex-solana-crypto)), posing a significant challenge. Meteora uses a different bin-based liquidity model rather than ticks.
 
 ---
 
@@ -213,7 +213,7 @@ Meteora's Dynamic Liquidity Market Maker (DLMM) captured >22% Solana DEX market 
 
 ### MEV Exposure
 
-Orca Whirlpools pools are targeted by sandwich MEV bots. Jito-based MEV bots explicitly support Orca Whirlpool pools as targets. Sandwich attacks can extract 2-3% of trade value. ([DL News](https://www.dlnews.com/articles/defi/solana-users-use-jito-to-stop-sandwich-attacks-and-mev/))
+Orca Whirlpools pools are targeted by sandwich MEV bots. Jito-based MEV bots explicitly support Orca Whirlpool pools as targets. ([DL News](https://www.dlnews.com/articles/defi/solana-users-use-jito-to-stop-sandwich-attacks-and-mev/))
 
 **Mitigations available:**
 - Jito's `DontFront` feature: adding a public key starting with `jitodontfront` to a transaction instruction forces the transaction to index 0 in any Jito bundle. ([Solana Docs](https://solana.com/developers/guides/advanced/mev-protection))
@@ -222,7 +222,7 @@ Orca Whirlpools pools are targeted by sandwich MEV bots. Jito-based MEV bots exp
 
 ### Capital Inefficiency vs. Active Management
 
-Concentrated positions go out-of-range when price moves beyond the selected band. Out-of-range positions earn no fees and are exposed to single-asset risk. A 10% price move outside range produces IL comparable to a 30% move in a full-range pool. This requires active position management or vault strategies. ([Orca Docs on IL](https://docs.orca.so/reference/educational-documents/impermanent-loss))
+Concentrated positions go out-of-range when price moves beyond the selected band. Out-of-range positions earn no fees and are exposed to single-asset risk. A 10% price move outside range produces IL comparable to a 30% move in a full-range pool. This requires active position management or vault strategies. ([Orca Docs](https://docs.orca.so) [LINK MOVED])
 
 ### Large-Trade Slippage
 

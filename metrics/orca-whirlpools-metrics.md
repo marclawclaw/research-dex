@@ -19,7 +19,7 @@ All figures are sourced. Unsourced estimates are marked `[NOT FOUND]`.
 | Metric | Value | Source | Date |
 |--------|-------|--------|------|
 | Cumulative all-time volume | >$300 billion | [Orca Medium](https://orca-so.medium.com/orca-solanas-liquidity-layer-3855b5985aa3) | Feb 2025 |
-| SOL/USDC pool 30-day volume | $22.8 billion | [PANews](https://www.panewslab.com/en/articles/5zrwdqh9) | May 2025 |
+| SOL/USDC pool 30-day volume | $22.8 billion | [PANews (Chinese edition)](https://www.panewslab.com/en/articles/5zrwdqh9) [source unverified in English] | May 2025 |
 | Daily volume (example period) | >$500 million | [Cryptonewsnavigator](https://www.cryptonewsnavigator.com/academy/article/three-metrics-explaining-orca-coin-price-movement-right-now) | ~2025 |
 | Solana DEX market share (volume) | ~16% | [bitcoinethereumnews.com](https://bitcoinethereumnews.com/finance/solanas-dex-wars-intensify-as-pumpfun-and-orca-challenge-raydiums-dominance/) | Week of Apr 14-20, 2025 |
 | Share of Jupiter-routed volume | [NOT FOUND] | | |
@@ -83,10 +83,10 @@ All figures are sourced. Unsourced estimates are marked `[NOT FOUND]`.
 | Metric | Orca | Raydium | Source | Date |
 |--------|------|---------|--------|------|
 | Solana DEX volume share | ~16% | ~31% | [bitcoinethereumnews.com](https://bitcoinethereumnews.com/finance/solanas-dex-wars-intensify-as-pumpfun-and-orca-challenge-raydiums-dominance/) | Apr 14-20, 2025 |
-| Raydium 30-day volume | | $35.6 billion | [PANews](https://www.panewslab.com/en/articles/5zrwdqh9) | May 2025 |
-| Orca SOL/USDC 30-day volume | $22.8 billion | | [PANews](https://www.panewslab.com/en/articles/5zrwdqh9) | May 2025 |
+| Raydium 30-day volume | | $35.6 billion | [PANews (Chinese edition)](https://www.panewslab.com/en/articles/5zrwdqh9) [source unverified in English] | May 2025 |
+| Orca SOL/USDC 30-day volume | $22.8 billion | | [PANews (Chinese edition)](https://www.panewslab.com/en/articles/5zrwdqh9) [source unverified in English] | May 2025 |
 | Jupiter routing share (Raydium) | | ~55% | [ChainCatcher](https://www.chaincatcher.com/en/article/2168403) | Feb 2025 |
-| Meteora Solana DEX share | | ~22% (Meteora) | [PANews](https://www.panewslab.com/en/articles/5zrwdqh9) | Mar 2025 |
+| Meteora Solana DEX share | | >22% (Meteora) | [CoinGecko](https://www.coingecko.com/learn/what-is-meteora-dex-solana-crypto) | Feb 2025 |
 
 ---
 
