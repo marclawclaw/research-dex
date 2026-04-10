@@ -10,10 +10,12 @@
 
 | Tick Spacing | Fee Rate | Best For | Notes |
 |-------------|----------|----------|-------|
-| 1 | ~0.01% | Stable / pegged pairs (e.g. USDC/USDT) | Finest granularity; highest capital efficiency for stable assets |
-| 10 | ~0.05% | Correlated assets | |
-| 25 | ~0.25% (approx) | Standard pairs | Most common general-purpose tier |
-| 120 | ~1% | Volatile / exotic pairs | Coarse granularity; less frequent tick crossings |
+| 1 | 0.01% (1 bp) | Stable / pegged pairs (e.g. USDC/USDT) | Finest granularity; highest capital efficiency for stable assets |
+| 10 | 0.05% (5 bp) | Correlated assets | |
+| 60 | 0.25% (25 bp) | Standard pairs | Most common general-purpose tier |
+| 120 | 1.00% (100 bp) | Volatile / exotic pairs | Coarse granularity; less frequent tick crossings |
+
+**Note:** In August 2024 Raydium expanded CLMM to eight fee tiers by adding 0.02%, 0.03%, 0.04%, and 2%. Source: https://x.com/RaydiumProtocol/status/1819053525264973854
 
 Source: https://deepwiki.com/raydium-io/raydium-sdk-V2/4.1.1-clmm-pool-creation-and-management ; https://docs.raydium.io/raydium/for-liquidity-providers/pool-types/clmm-concentrated
 

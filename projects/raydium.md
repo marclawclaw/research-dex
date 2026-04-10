@@ -41,10 +41,11 @@ Raydium exposes three pool types to liquidity providers and token issuers:
 - LPs choose a price range; liquidity is only active within that range.
 - Positions are represented as NFTs (non-fungible tokens) rather than fungible LP tokens.
 - Fee tiers tied to tick spacing (see [[raydium-clmm-metrics]]):
-  - 1 bp spacing — stable pairs (e.g. USDC/USDT).
-  - 10 bp spacing — correlated assets.
-  - 25 bp spacing — standard pairs.
-  - 100 bp spacing — volatile/exotic pairs.
+  - 1 tick spacing (0.01% fee) — stable pairs (e.g. USDC/USDT).
+  - 10 tick spacing (0.05% fee) — correlated assets.
+  - 60 tick spacing (0.25% fee) — standard pairs.
+  - 120 tick spacing (1% fee) — volatile/exotic pairs.
+- Additional fee tiers (0.02%, 0.03%, 0.04%, 2%) were introduced in August 2024, expanding CLMM to eight tiers total.
 - LPs receive 84% of fees; 12% to RAY buybacks; 4% to treasury.
 - Fees accumulate in-position; not auto-compounded. Must be claimed via withdraw or a zero-liquidity decrease.
 - Impermanent loss is amplified: if price exits the chosen range the position becomes entirely single-sided and stops earning fees, with no automatic closure.
@@ -55,7 +56,7 @@ Raydium exposes three pool types to liquidity providers and token issuers:
 - Four fee tiers: 0.25%, 1%, 2%, 4%.
 - Fee split: 84% to LPs, 12% to RAY buybacks, 4% to treasury.
 - CPMM pool count grew 82% QoQ in Q3 2025.
-- Source: https://docs.raydium.io/raydium/pool-creation/pool-types-overview
+- Source: https://docs.raydium.io/raydium/for-liquidity-providers/pool-types/cpmm-constant-product
 
 ---
 
@@ -186,11 +187,11 @@ Additional review: Neodyme team via bug bounty agreement; ImmuneFi bug bounty pr
 - Dec 17, 10:27 UTC: AMM v4 program upgraded via Squads multisig.
 - Dec 17, ~15:00 UTC: remaining admin parameters transferred to multisig.
 
-**Attacker's exit:** ~$2M bridged to Ethereum (including $1.6M in SOL), routed through Tornado Cash.
+**Attacker's exit:** ~$2.7M bridged to Ethereum (1,774.5 ETH over 42 transactions), routed through Tornado Cash. Source: https://www.theblock.co/post/203732/raydium-hacker-funnels-2-7-million-through-tornado-cash-mixer
 
 **Remediation:** Removed `AmmParams::MinSize`, `SyncLp`, `SetLpSupply`, `SyncK`, `SyncNeedTake`. All admin parameters for Stable Pools, Acceleraytor, and DropZone also removed. Admin authority moved to Squads multi-sig governance.
 
-Source: https://raydium.medium.com/detailed-post-mortem-and-next-steps-d6d6dd461c3e ; https://www.halborn.com/blog/post/explained-the-raydium-hack-november-2022
+Source: https://raydium.medium.com/detailed-post-mortem-and-next-steps-d6d6dd461c3e ; https://www.certik.com/resources/blog/raydium-protocol-exploit-incident-analysis
 
 ---
 
