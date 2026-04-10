@@ -168,7 +168,7 @@ Source: https://docs.raydium.io/raydium/protocol/security
 
 Additional review: Neodyme team via bug bounty agreement; ImmuneFi bug bounty programme active.
 
-**Governance:** All program authority held under a Squads multi-sig. Programs remain upgradeable; larger updates engage external security professionals. Timelock mechanisms planned (not yet deployed as of Q3 2025).
+**Governance:** All program authority held under a Squads multi-sig. Programs remain upgradeable; larger updates engage external security professionals. As of July 2024, Raydium does not employ a timelock program function for updates (source: [Raydium access controls docs](https://docs.raydium.io/raydium/protocol/security/access-controls)); no public announcement of timelock deployment has been found as of Q1 2026.
 
 ---
 
@@ -238,7 +238,7 @@ Raydium is the primary MEV target on Solana. Key data:
 5. **OpenBook dependency:** Standard AMM v4 pools depend on an active OpenBook market; if OpenBook liquidity dries up, the hybrid benefit is reduced.
 6. **Volume concentration risk:** January 2025's record $195.8B monthly volume was largely driven by TRUMP memecoin speculation. When meme cycles end, volumes contract sharply (Q2 2025: -69.2% QoQ).
 7. **LaunchLab concentration:** In Q3 2025, 98% of LaunchLab revenue came from LetsBonk ecosystem launches, creating platform concentration risk.
-8. **Upgradeability without timelock:** Programs remain upgradeable by the team multisig with no timelock. Planned but not yet deployed.
+8. **Upgradeability without timelock:** Programs remain upgradeable by the team multisig with no timelock. Raydium docs (July 2024) confirm no timelock function is currently employed; no public confirmation of deployment as of Q1 2026.
 
 ---
 

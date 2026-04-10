@@ -122,7 +122,7 @@ Uniswap V4 does not use per-pool token custody. All tokens are held by the singl
 | EIP-1153 transient storage | ~98% gas reduction for state tracking vs. persistent storage |
 | Permission bits in hook address | Prevents hooks claiming callbacks their code doesn't implement; no on-chain registry needed |
 | Flash accounting over eager transfers | Scales to arbitrarily complex multi-pool operations with only two final transfers |
-| Core protocol fee via governance | `ProtocolFees.sol` provides `setProtocolFee()` controlled by a governance-set `protocolFeeController`; hooks can layer additional dynamic fee logic on top |
+| Core protocol fee via governance | `ProtocolFees.sol` provides `setProtocolFee()` controlled by a governance-set `protocolFeeController` (owner-only via `setProtocolFeeController`); hooks can layer additional dynamic fee logic on top. Source: [Uniswap V4 ProtocolFees docs](https://docs.uniswap.org/contracts/v4/reference/core/ProtocolFees) |
 
 ## Differentiators vs. V3
 

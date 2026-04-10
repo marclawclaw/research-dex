@@ -33,7 +33,7 @@ Cross-project trading volume comparison for selected DEXs. All figures sourced a
 | Uniswap (all) | 30-day | >$148B | [CoinLaw](https://coinlaw.io/uniswap-statistics/) | 2025 |
 | Jupiter (Solana aggregator) | Cumulative | >$1T | [Medium/Scoper](https://medium.com/@Scoper/solana-defi-deep-dives-jupiter-ultra-v3-next-gen-dex-aggregator-late-2025-2cef75c97301) | 2025 |
 | Jupiter | Solana aggregator market share | 93.6% | [Medium/Scoper](https://medium.com/@Scoper/solana-defi-deep-dives-jupiter-ultra-v3-next-gen-dex-aggregator-late-2025-2cef75c97301) | 2025 |
-| Raydium | Q3 2025 volume | [DATA NEEDED] | — | — |
+| Raydium | Q3 2025 volume | $51.9B | [AltSignals / Blockworks](https://altsignals.io/post/raydium-q3-2025-defi-growth-analysis) | Q3 2025 |
 | CoW Protocol | Daily RFQ (JupiterZ equivalent: JupiterZ ~$100M/day) | N/A (different model) | — | — |
 
 ## Notes on Uniswap V2 volume decline

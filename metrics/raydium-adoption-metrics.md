@@ -104,6 +104,14 @@ Source: https://blockworks.com/news/raydium-token-holder-report
 
 Source: https://blockworks.com/news/raydium-token-holder-report
 
+**Q4 2025 (preliminary, from Blockworks Q4 2025 Tokenholder Report):**
+
+| Metric | Value (Q4 2025) | Source |
+|--------|-----------------|--------|
+| Treasury assets | $126.4M (-57% YoY; including $23.1M USDC) | [Blockworks Q4 2025 report](https://x.com/Blockworks_/status/2021619640787439701) | April 2026 |
+| Net revenue | $7.3M | [Blockworks Q4 2025 report](https://x.com/Blockworks_/status/2021619640787439701) | April 2026 |
+| LaunchLab revenue | $1.5M | [Blockworks Q4 2025 report](https://x.com/Blockworks_/status/2021619640787439701) | April 2026 |
+
 ---
 
 ## RAY Token

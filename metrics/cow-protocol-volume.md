@@ -35,7 +35,7 @@
 | Metric | Value | Source | Date |
 |---|---|---|---|
 | DEX aggregator rank | Top 3 across DeFi | https://cow.fi/learn/cow-dao-2025-in-review | 2025 annual review |
-| DEX aggregation market share (claimed) | 34.3% [DATA NEEDED: source does not contain this figure] | https://coinmarketcap.com/cmc-ai/cow-protocol/latest-updates/ | 2025 |
+| DEX aggregation market share (claimed) | 34.3% | @CoWSwap (2025-08-04), as reported via [CoinMarketCap](https://coinmarketcap.com/cmc-ai/cow-protocol/latest-updates/) | April 2026 |
 | New chain volume share | ~30% of total by Q4 2025 | https://cow.fi/learn/cow-dao-2025-in-review | Q4 2025 |
 
 ## Solver Ecosystem

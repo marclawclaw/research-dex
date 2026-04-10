@@ -6,6 +6,8 @@ sources:
   - https://docs.uniswap.org/contracts/v4/concepts/flash-accounting
   - https://docs.uniswap.org/contracts/v4/overview
   - https://app.uniswap.org/whitepaper-v4.pdf
+  - https://mixbytes.io/blog/modern-dex-es-how-they-re-made-balancer-v3
+  - https://docs-v2.balancer.fi/reference/contracts/flash-loans.html
 ---
 
 # Metric: Vault Accounting Patterns (Cross-Protocol)
@@ -19,7 +21,7 @@ Comparison of how each researched DEX handles token custody, balance reconciliat
 | Uniswap V2 | Per-pool contract | Cached reserves; `sync()` updates to live balance | `skim()` sends surplus to caller | Partial (positive rebase creates skimmable surplus; negative requires `sync()`) | No |
 | Uniswap V3 | Per-pool contract | `slot0` price + `positions`; no reserve cache | None (`collect()` for fees only) | Limited (fee-on-transfer partially supported) | No |
 | Uniswap V4 | Singleton PoolManager | Flash accounting: transient delta tracking; `sync()` + `settle()` at session end | Not applicable (no cached reserve separate from live balance) | Hook-extensible; not native | Yes (EIP-1153) |
-| Balancer V2 | Single external Vault | Internal balance accounting; virtual shares | Asset managers can reclaim yield | Limited | No (internal accounting, not transient) |
+| Balancer V2 | Single external Vault | Internal balance accounting; virtual shares | Asset managers can reclaim yield | Limited | No (internal accounting, not transient; supports flash loans via Vault, but flash loans are a different mechanism from EIP-1153 transient accounting) |
 | Balancer V3 | Single external Vault | Transient accounting (EIP-1153); before/after hooks | Native yield-bearing token integration | Yes (ERC4626 native) | Yes (EIP-1153) |
 | Curve StableSwapNG | Per-pool contract | `_balance()` reads live balance; admin fees in separate array | Not applicable (no skim; admin fees isolated) | Yes (rebasing, rate-oraclised, ERC4626) | No |
 | Raydium | Per-pool token accounts (Solana) | Solana account data; no cached reserve | Not applicable | Not documented | No |

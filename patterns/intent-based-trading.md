@@ -115,15 +115,15 @@ CoW Protocol's 2025 expansion included cross-chain intents: a user signs a singl
 
 ## Ecosystem Adoption
 
-Intent-based trading has been widely adopted across Ethereum DeFi from approximately 2023:
+Intent-based trading emerged broadly across Ethereum DeFi from approximately 2023:
 - CoW Protocol: the original production implementation (2021); $87B volume in 2025
-- UniswapX: Uniswap's intent-based layer
+- UniswapX: launched July 2023 and gained 6.7% market share within months [BlockCrunch, November 2023](https://blockcrunch.substack.com/p/cow-1inch-uniswap-intents-and-the)
 - 1inch Fusion: intent model on top of 1inch routing
 - Various solver-based cross-chain protocols
 
 The pattern is now considered a standard approach to MEV-resistant DEX design.
 
-**Source:** https://medium.com/@evinkim/best-intent-protocol-2025-complete-guide-to-intent-based-trading-cbfe3b5135b9
+**Source:** [BlockCrunch (2023-11-28)](https://blockcrunch.substack.com/p/cow-1inch-uniswap-intents-and-the)
 
 ## Related Patterns
 
