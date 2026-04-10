@@ -5,7 +5,7 @@ ecosystem: Ethereum
 type: AMM (hook-based, flash accounting)
 status: live
 mainnet_launch: 2025-01-31
-chains: 16 mainnets (as of April 2026)
+chains: 17 mainnets (as of April 2026)
 tvl_usd: ">$1B (milestone reached 2025-07-27)"
 cumulative_volume_usd: ">$190B (since January 2025 launch)"
 auditors: [OpenZeppelin, Spearbit, Certora, "Trail of Bits", ABDK, "Pashov Audit Group"]
@@ -38,12 +38,12 @@ Uniswap V4 is the fourth major version of the Uniswap automated market maker (AM
 | Volume via Atrium alumni hooks | $697M+ | [Atrium Academy](https://blog.atrium.academy/uniswap-hook-incubator-2025-wrapped) | 2025 (year-end) |
 | Unichain share of V4 volume | ~50% | [CoinLaw](https://coinlaw.io/uniswap-statistics/) | 2025/2026 |
 | L2 share of V4 daily volume | 67.5% | [CoinLaw](https://coinlaw.io/uniswap-statistics/) | 2025/2026 |
-| Chains deployed (mainnet) | 16 | [Uniswap docs](https://docs.uniswap.org/contracts/v4/deployments) | April 2026 |
+| Chains deployed (mainnet) | 17 | [Uniswap docs](https://docs.uniswap.org/contracts/v4/deployments) | April 2026 |
 | Overall Uniswap ecosystem TVL | ~$6.8B | [CoinLaw](https://coinlaw.io/uniswap-statistics/) | 2026 |
 
 ### Deployment chains (mainnet, April 2026)
 
-Ethereum (Chain ID 1), Unichain (130), Optimism (10), Base (8453), Arbitrum One (42161), Polygon (137), Blast (81457), Zora (7777777), Worldchain (480), Ink (57073), Soneium (1868), Avalanche (43114), BNB Smart Chain (56), Celo (42220), Monad (143), Tempo (4217).
+Ethereum (Chain ID 1), Unichain (130), Optimism (10), Base (8453), Arbitrum One (42161), Polygon (137), Blast (81457), Zora (7777777), Worldchain (480), Ink (57073), Soneium (1868), Avalanche (43114), BNB Smart Chain (56), Celo (42220), Monad (143), Tempo (4217), MegaETH (4326).
 
 Source: [Uniswap V4 Deployments](https://docs.uniswap.org/contracts/v4/deployments), April 2026.
 
@@ -122,7 +122,7 @@ Uniswap V4 does not use per-pool token custody. All tokens are held by the singl
 | EIP-1153 transient storage | ~98% gas reduction for state tracking vs. persistent storage |
 | Permission bits in hook address | Prevents hooks claiming callbacks their code doesn't implement; no on-chain registry needed |
 | Flash accounting over eager transfers | Scales to arbitrarily complex multi-pool operations with only two final transfers |
-| No built-in protocol fee on V4 core | Fee logic delegated to hooks; protocol can enable fees via governance |
+| Core protocol fee via governance | `ProtocolFees.sol` provides `setProtocolFee()` controlled by a governance-set `protocolFeeController`; hooks can layer additional dynamic fee logic on top |
 
 ## Differentiators vs. V3
 
@@ -149,7 +149,7 @@ Both V4 and [[projects/balancer-v3]] use EIP-1153 transient accounting and hooks
 
 ### MEV exposure
 
-Hook logic based on external price data or dynamic fees is exploitable by MEV bots through front-running. In 2025 a single sandwich attack on Uniswap cost one trader $215,000 ([source](https://academy.exmon.pro/future-of-liquidity-uniswap-v4-hooks-vs-jit-mev-attacks)). Hooks can mitigate MEV (e.g., Angstrom by Sorella Labs implements an app-specific sequencer), but MEV protection is opt-in per pool.
+Hook logic based on external price data or dynamic fees is exploitable by MEV bots through front-running. MEV remains a systemic risk across Uniswap versions: in March 2025 a sandwich attack on a Uniswap V3 USDC/USDT pool cost one trader $215,000 ([CoinTelegraph](https://cointelegraph.com/news/crypto-trader-loses-least-215000-stablecoins-from-sandwich-attack)). V4 hooks that depend on observable oracle data or dynamic fee state face analogous exposure. Hooks can mitigate MEV (e.g., Angstrom by Sorella Labs implements an app-specific sequencer), but MEV protection is opt-in per pool.
 
 ### Hook security surface
 
@@ -160,6 +160,9 @@ The hook architecture dramatically expands the attack surface relative to V3. Do
 - **Async hook exploitation:** Hooks taking full custody of swapped assets can redirect funds to an attacker.
 - **Centralization via upgradeable hooks:** Owner-controlled UUPS hooks can change fees or pause withdrawals after deployment.
 - **DoS via gas exhaustion:** Hooks with unbounded loops or expensive operations in `beforeSwap` can block all pool swaps.
+- **Pool exclusivity issues:** Hooks attached to multiple pools without per-pool validation can leak state or allow cross-pool manipulation.
+- **MEV and front-running via hook logic:** Price-dependent hook logic (dynamic fees based on oracle data) is observable in the mempool, enabling front-running.
+- **Configuration mismatch (permission bit errors):** Hooks deployed without the correct address bits for their callbacks are silently never invoked by the PoolManager.
 
 The Uniswap Foundation does not audit or certify hook implementations. Users bear the full risk of interacting with pools attached to unaudited hooks.
 
@@ -179,7 +182,7 @@ V4 core does not natively handle rebasing tokens. Hook implementations that take
 
 | Item | Detail | Source |
 |------|--------|--------|
-| Independent audits | 9 (OpenZeppelin, Spearbit, Certora, Trail of Bits, ABDK, Pashov Audit Group) | [Uniswap blog](https://blog.uniswap.org/uniswap-v4-is-here) |
+| Independent audits | 9 across core and periphery (core: OpenZeppelin, Spearbit, Certora, Trail of Bits, ABDK; periphery: OpenZeppelin, Pashov Audit Group) | [Uniswap blog](https://blog.uniswap.org/uniswap-v4-is-here) |
 | Security competition | $2.35M; 500+ researchers; no critical bugs found | [Uniswap blog](https://blog.uniswap.org/uniswap-v4-is-here) |
 | Bug bounty | $15.5M (largest in DeFi history at launch); active via Cantina | [Uniswap blog](https://blog.uniswap.org/v4-bug-bounty) |
 | Audit reports | [v4-core/docs/security/audits](https://github.com/Uniswap/v4-core/tree/main/docs/security/audits); [v4-periphery/audits](https://github.com/Uniswap/v4-periphery/tree/main/audits) | GitHub |

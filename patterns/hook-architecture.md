@@ -143,6 +143,14 @@ Mitigation: Use `CREATE2` address mining to derive an address with the correct p
 
 Source: [Hacken](https://hacken.io/discover/auditing-uniswap-v4-hooks/).
 
+### 8. Pool exclusivity issues
+
+Hooks that do not validate which pool they are attached to can be reused across multiple pools. If the hook maintains internal state (e.g., accumulated fees, user allowlists), a second pool attaching the same hook can read or corrupt that state, leading to cross-pool manipulation.
+
+Mitigation: Use `beforeInitialize()` to record and enforce a single authorised `PoolId`. Reject initialisation attempts from any other pool.
+
+Source: [Hacken](https://hacken.io/discover/auditing-uniswap-v4-hooks/).
+
 ## Comparison with Balancer V3 hooks
 
 Both Uniswap V4 and [[projects/balancer-v3]] implement hook architectures, but with different designs:

@@ -32,7 +32,7 @@ Cross-protocol TVL figures for DEX research. All values sourced from DeFiLlama o
 | 5,000+ hooks on mainnet | End of 2025 | [Atrium Academy](https://blog.atrium.academy/uniswap-hook-incubator-2025-wrapped) |
 | 313,533+ pools with Atrium alumni hooks | End of 2025 | [Atrium Academy](https://blog.atrium.academy/uniswap-hook-incubator-2025-wrapped) |
 | >$190B cumulative volume | End of 2025 | [Atrium Academy](https://blog.atrium.academy/uniswap-hook-incubator-2025-wrapped) |
-| Deployed on 16 mainnets | April 2026 | [Uniswap docs](https://docs.uniswap.org/contracts/v4/deployments) |
+| Deployed on 17 mainnets | April 2026 | [Uniswap docs](https://docs.uniswap.org/contracts/v4/deployments) |
 
 ## Cross-protocol TVL (from research index)
 
@@ -60,7 +60,7 @@ Sources: DeFiLlama protocol pages; [[_index]] research index.
 
 ## Notes for RFP writer
 
-- Uniswap V4 reached $1B TVL in 177 days, faster than V3's adoption rate. This is a useful data point for adoption curve projections.
+- Uniswap V4 reached $1B TVL in 177 days. For comparison, V3 reached $1B TVL in approximately 45 days after its May 2021 launch, so V4's path to $1B was slower in absolute terms (though market conditions differed significantly). This is a useful data point for adoption curve projections.
 - The $190B cumulative volume figure (end 2025) comes from Atrium Academy's hook incubator report, which covers hooks built by their graduates; total V4 volume is higher.
 - L2 dominance (67.5% of daily volume) reflects the chain deployment strategy: Unichain, Base, Arbitrum, and Optimism are primary activity centres.
 - For precise current TVL, check [DeFiLlama Uniswap V4](https://defillama.com/protocol/uniswap-v4) directly; the DeFiLlama page was returning 403 at time of research (April 2026).

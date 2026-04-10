@@ -95,7 +95,7 @@ This contrasts with:
 
 ## Deployment considerations
 
-Pool addresses are derived differently on each chain; Uniswap V4 explicitly warns integrators not to assume the same `PoolManager` address across chains. As of April 2026, V4 is deployed on 16 mainnet chains with distinct addresses per chain.
+Pool addresses are derived differently on each chain; Uniswap V4 explicitly warns integrators not to assume the same `PoolManager` address across chains. As of April 2026, V4 is deployed on 17 mainnet chains with distinct addresses per chain.
 
 Source: [Uniswap V4 Deployments](https://docs.uniswap.org/contracts/v4/deployments).
 
